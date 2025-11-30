@@ -1,0 +1,84 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  
+  /* Color Palette */
+  /* Primary #FF6B35 (Orange) -> 16 100% 60% */
+  /* Secondary #004E89 (Deep Blue) -> 206 100% 27% */
+  /* Success #27AE60 (Green) -> 145 63% 42% */
+  /* Background #F8F9FA (Light Grey) -> 210 17% 98% */
+  /* Text #2C3E50 (Dark Blue-Grey) -> 210 29% 24% */
+  /* Accent #E74C3C (Red) -> 6 78% 57% */
+
+  --color-background: hsl(210 17% 98%);
+  --color-foreground: hsl(210 29% 24%);
+
+  --color-card: hsl(0 0% 100%);
+  --color-card-foreground: hsl(210 29% 24%);
+
+  --color-popover: hsl(0 0% 100%);
+  --color-popover-foreground: hsl(210 29% 24%);
+
+  --color-primary: hsl(16 100% 60%);
+  --color-primary-foreground: hsl(0 0% 100%);
+
+  --color-secondary: hsl(206 100% 27%);
+  --color-secondary-foreground: hsl(0 0% 100%);
+
+  --color-muted: hsl(210 20% 96%);
+  --color-muted-foreground: hsl(215 16% 47%);
+
+  --color-accent: hsl(210 40% 96%);
+  --color-accent-foreground: hsl(222.2 47.4% 11.2%);
+
+  --color-destructive: hsl(6 78% 57%);
+  --color-destructive-foreground: hsl(0 0% 100%);
+
+  --color-border: hsl(214 32% 91%);
+  --color-input: hsl(214 32% 91%);
+  --color-ring: hsl(16 100% 60%);
+
+  --color-chart-1: hsl(16 100% 60%); /* Orange */
+  --color-chart-2: hsl(206 100% 27%); /* Blue */
+  --color-chart-3: hsl(145 63% 42%); /* Green */
+  --color-chart-4: hsl(280 65% 60%); /* Purple */
+  --color-chart-5: hsl(340 75% 55%); /* Pink */
+
+  --radius: 0.75rem;
+  --font-sans: 'Inter', sans-serif;
+  --font-display: 'Roboto', sans-serif;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-medium tracking-tight;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-muted-foreground/20 rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-muted-foreground/40;
+}
